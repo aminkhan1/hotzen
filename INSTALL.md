@@ -1,17 +1,10 @@
 # Installation and first use
 
-This guide covers the V1 runtime in package version **0.0.1**. Installing the CLI,
-deploying project instructions, and executing an engineering task are separate actions.
-
-`hotzen@0.0.1` is a initial experimental release. It was unpublished
-when these artifacts were prepared. Isolated Linux runtime verification passed.
-Native Windows runtime is **NOT VERIFIED**.
-
-For an owner-provided tarball,
-install with `npm install --global /absolute/path/to/hotzen-0.0.1.tgz`, then
-run `hotzen --version`. This installs the existing CLI entry point and requires
-no access to the private source repository. Registry commands are conditional
-on publication of that exact version; no public bootstrap URL is approved.
+This guide covers the unpublished HOTZEN **0.0.2** experimental candidate.
+The initial experimental release, `hotzen@0.0.1`, is publicly available on npm.
+The GitHub distribution repository is public. Native Windows runtime is
+**NOT VERIFIED**. Installing the CLI, deploying project instructions, and
+executing an engineering task are separate actions.
 
 Existing `core` / `agent-hub-init` commands, arguments and exit codes remain
 compatible. The local installers also retain `agent-hub`. No memory, runtime
@@ -28,8 +21,8 @@ For release export restrictions see [HOTZEN distribution](docs/HOTZEN_DISTRIBUTI
   SQLite can still emit an experimental warning on supported versions.
 - This is a capability-derived minimum, not a claim that every accepted Node
   version has been tested. Record the actual Node version with release evidence.
-- Bash for the local macOS/Linux installer; PowerShell for the local Windows
-  installer. Python 3 and Git are needed for the optional pre-commit scanner.
+- Bash for the local macOS/Linux installer. Python 3 and Git are needed for
+  the optional pre-commit scanner.
   Project verification needs the project's own tools (for example Flutter).
 - Provider CLIs, credentials and host integration are needed only for the execution
   route that uses them. They are not installed or configured by this guide's CLI setup.
@@ -39,6 +32,72 @@ For release export restrictions see [HOTZEN distribution](docs/HOTZEN_DISTRIBUTI
   must follow the existing fallback policy, not an implicit download.
 
 ## 1. Make the CLI available
+
+### npm and NPX (recommended)
+
+The published 0.0.1 can show Model Switching status on bare `npx hotzen`.
+To open its deployer explicitly, run `npx --package=hotzen@0.0.1 -- hotzen`.
+The examples below target the 0.0.2 candidate. After npm publication,
+`@0.0.2` selects that exact version and `@rc` selects the version tagged
+`rc`.
+
+```sh
+npx hotzen@0.0.2
+npx hotzen@0.0.2 --stack=flutter --bridges=codex
+npx hotzen@0.0.2 --help
+npx hotzen@rc
+```
+
+After 0.0.2 is promoted to `latest`, run `npx hotzen` in the intended project
+to open stack detection or selection. NPX does not permanently install the CLI.
+Publish future candidates with `--tag=rc`. Move `latest` only after explicit
+stable-release approval.
+
+### Global npm installation
+
+After 0.0.2 is promoted to `latest`, install it into the configured npm
+global prefix. Plain `hotzen` requires that prefix's executable directory
+on `PATH`.
+
+```sh
+npm install -g hotzen
+hotzen --help
+```
+
+### GitHub Release tarball (macOS/Linux)
+
+Use this procedure after both v0.0.2 assets are available on the GitHub
+Release. It requires Node.js, npm, curl, and either `shasum` or `sha256sum`.
+Download the archive and its separate checksum, verify the archive, then
+install the verified bytes into npm's global prefix.
+
+```sh
+(
+  set -eu
+  TMP_DIR="$(mktemp -d)"
+  trap 'rm -rf "$TMP_DIR"' EXIT
+  cd "$TMP_DIR"
+  RELEASE_URL="https://github.com/aminkhan1/hotzen/releases/download/v0.0.2"
+  ARCHIVE="hotzen-0.0.2.tgz"
+
+  curl -fL --retry 3 -o "$ARCHIVE" "$RELEASE_URL/$ARCHIVE"
+  curl -fL --retry 3 -o "$ARCHIVE.sha256" "$RELEASE_URL/$ARCHIVE.sha256"
+
+  if command -v shasum >/dev/null 2>&1; then
+    shasum -a 256 -c "$ARCHIVE.sha256"
+  else
+    sha256sum -c "$ARCHIVE.sha256"
+  fi
+
+  npm install -g "./$ARCHIVE"
+  hotzen --help
+)
+```
+
+The checksum file is specific to the release archive. When switching
+versions, download the archive and checksum from the same release.
+
+### Existing checkout or unpacked distribution
 
 From an existing local checkout or an unpacked distribution, choose one method.
 Keep that source directory in place: local wrappers delegate to its `cli/index.js`.
@@ -62,31 +121,6 @@ It does not edit shell startup files. An unrelated file, symlink or directory at
 causes installation to stop before changing any wrapper. Known legacy wrappers
 are recognized by their complete template and upgraded without executing them.
 
-**Local Windows wrapper installation:**
-
-```powershell
-cd C:\path\to\hotzen
-powershell -ExecutionPolicy Bypass -File cli\install-windows.ps1
-```
-
-This writes `hotzen.cmd`, `core.cmd`, `agent-hub.cmd` and `agent-hub-init.cmd` under
-`$HOME\.local\bin` and adds that directory to the user's persistent PATH if needed.
-Open a new terminal afterward. An unrelated existing `core` command in that
-installation directory stops installation. Commands elsewhere on PATH can still
-shadow these wrappers: use the absolute wrapper path or direct Node invocation
-when resolving a collision. No system-wide PATH or package installation is required.
-
-**npm alternative, when using an available registry release:**
-
-`npm install --global hotzen@<published-version>` provides the package's
-`hotzen`, `core` and `agent-hub-init` binaries. It writes to the configured npm global prefix.
-`npx hotzen@<published-version>` runs the deployer; it does not permanently
-install `core`. Do not assume an unpublished candidate is available as `@latest`.
-
-First check the chosen executable with `core --help`, or the direct Node command
-above. These instructions are usage guidance, not evidence that installation or a
-initial experimental release has been tested on your system.
-
 ## 2. Deploy instructions into the intended project
 
 ```sh
@@ -106,8 +140,8 @@ stop deployment with a reinstall message; they never trigger an implicit private
 Only explicit `--remote` / `--force-remote` requests use the legacy private GitHub route.
 The root `install.sh` / `install.ps1` deployers are legacy network-capable paths,
 require authorized private access, and are not supported public bootstrap methods. These
-root deployers do not install a persistent `core` command. For a single consistent
-first-use route on either platform, use the Node CLI and local wrapper steps above.
+root deployers do not install a persistent `core` command. Use the public npm
+or macOS/Linux tarball instructions above for public installation.
 
 **Hooks are opt-in.** Deployment can copy the hook and scanner files, but copying
 is not activation. For the Node CLI, `--install-hooks` requests configuration of
@@ -152,6 +186,12 @@ evidence for the Tasks actually tested. This does not establish universal host,
 OS, Node-version, Provider-adapter or task coverage. Native host execution and a
 Core-managed Provider adapter are distinct capabilities.
 
+## Model Switching in V1
+
+`core switch` reports frozen OFF status. Enabling automatic switching is
+blocked. `core switch off [model]` does not select a fixed model. Neither
+operation changes saved preferences. The Safety Floor remains active.
+
 ## Distribution and release evidence
 
 The `package.json` allowlist selects runtime sources and public deployment
@@ -160,7 +200,7 @@ memory, tasks, SQLite, bundles, backups, caches, consumer sandboxes, test fixtur
 and benchmark result data. Credential fields in selected MCP templates must be
 empty or environment placeholders; users supply their own credentials separately.
 
-Isolated Linux verification passed for this RC (62 CLI checks and 11 targeted
+Isolated Linux verification passed for the initial 0.0.1 release (62 CLI checks and 11 targeted
 contract checks). The release tarball was inspected and reconciled with the
 public distribution. Native Windows runtime is **NOT VERIFIED**.
 

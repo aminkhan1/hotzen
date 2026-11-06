@@ -1,10 +1,10 @@
 {
   "name": "hotzen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HOTZEN — Governed AI Engineering Framework",
   "main": "cli/index.js",
   "bin": {
-    "hotzen": "./cli/index.js",
+    "hotzen": "./cli/hotzen.js",
     "core": "./cli/index.js",
     "agent-hub-init": "./cli/index.js"
   },

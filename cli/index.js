@@ -4369,6 +4369,7 @@ async function main() {
 }
 
 module.exports = {
+  main,
   safeCopyFile,
   safeWriteString,
   safeCopyDir,

@@ -1,13 +1,14 @@
 # ⚡ چیت‌شیت جامع خط فرمان (HOTZEN — Governed AI Engineering Framework CLI Cheatsheet)
 
-> نسخهٔ آزمایشی HOTZEN با شمارهٔ `0.0.1` هنوز منتشر نشده است. دستورات رجیستری
-> فقط پس از انتشار همان نسخه معتبرند؛ فعلاً از نسخه محلی تاییدشده و [راهنمای نصب](INSTALL.md)
-> استفاده کنید. `core` و `agent-hub-init` سازگار می‌مانند؛ `agent-hub` نام نصاب محلی است.
+> این نمونه‌ها برای نامزد منتشرنشدهٔ 0.0.2 هستند. پس از انتشار از
+> `npx hotzen@0.0.2` و پس از انتقال به `latest` از `npx hotzen` استفاده کنید.
+> برای نسخهٔ عمومی 0.0.1، دستور `npx --package=hotzen@0.0.1 -- hotzen`
+> نصب‌کنندهٔ تعاملی را باز می‌کند. [راهنمای نصب](INSTALL.md).
 > دانلودهای آنلاین زیر مسیر خصوصی قدیمی هستند، نه نشانی عمومی HOTZEN؛ نصب بسته
 > از منابع همراه استفاده می‌کند و مسیر حافظه و تنظیمات تغییر نمی‌کند.
 
 
-> راهنمای سریع و کاربردی برای تمامی دستورها، فلگ‌ها، زیرفرمان‌ها و حالت‌های مختلف `npx hotzen@0.0.1` پس از انتشار همین نسخه. پس از نصب از آرشیو محلی، همین آرگومان‌ها را با `hotzen` اجرا کنید. [راهنمای نصب](INSTALL.md).
+> راهنمای سریع و کاربردی برای تمامی دستورها، فلگ‌ها، زیرفرمان‌ها و حالت‌های مختلف `npx hotzen@0.0.2`. پس از نصب از آرشیو محلی، همین آرگومان‌ها را با `hotzen` اجرا کنید. [راهنمای نصب](INSTALL.md).
 
 ---
 
@@ -29,17 +30,17 @@
 ### 🚀 استقرار هوشمند و تک‌کلیک (پیشنهادی)
 با بازرسی مانیفست‌های پروژه (`composer.json`, `pubspec.yaml`, `package.json`, `Cargo.toml`, `go.mod` و...)، تکنولوژی را شناسایی کرده و با زدن کلید **Enter** همه چیز را نصب می‌کند:
 ```bash
-npx hotzen@0.0.1
+npx hotzen@0.0.2
 ```
 
 ### 🔍 فقط اسکن و تشخیص تکنولوژی (بدون تغییر فایل)
 پروژه فعلی (یا یک مسیر خاص) را بررسی می‌کند و نوع استک، درصد اطمینان و شواهد شناسایی‌شده را چاپ می‌کند:
 ```bash
 # در پوشه جاری:
-npx hotzen@0.0.1 detect
+npx hotzen@0.0.2 detect
 
 # در یک مسیر مشخص:
-npx hotzen@0.0.1 detect /path/to/my-project
+npx hotzen@0.0.2 detect /path/to/my-project
 ```
 
 ---
@@ -49,11 +50,11 @@ npx hotzen@0.0.1 detect /path/to/my-project
 ### 📌 استقرار مستقیم یک استک خاص (Manual Override)
 اگر می‌خواهید تشخیص خودکار را نادیده بگیرید و مستقیماً یک استک را مستقر کنید:
 ```bash
-npx hotzen@0.0.1 --stack=laravel
-npx hotzen@0.0.1 --stack=flutter
-npx hotzen@0.0.1 --stack=react-nextjs
-npx hotzen@0.0.1 --stack=rust
-npx hotzen@0.0.1 --stack=python-fastapi
+npx hotzen@0.0.2 --stack=laravel
+npx hotzen@0.0.2 --stack=flutter
+npx hotzen@0.0.2 --stack=react-nextjs
+npx hotzen@0.0.2 --stack=rust
+npx hotzen@0.0.2 --stack=python-fastapi
 ```
 
 ### 🧩 استقرار چند استکه ترکیبی (پروژه‌های Fullstack / Polyglot)
@@ -66,13 +67,13 @@ Enter number(s) or name(s) separated by comma [e.g. 4,15 or default: flutter]: r
 
 # فلگ‌های خط فرمان:
 # فرانت‌اند Next.js + بک‌اند Laravel + معماری دیتابیس:
-npx hotzen@0.0.1 --stack=react-nextjs,laravel,database
+npx hotzen@0.0.2 --stack=react-nextjs,laravel,database
 
 # پایتون FastAPI + هوش مصنوعی و یادگیری ماشین + دیتابیس:
-npx hotzen@0.0.1 --stack=python-fastapi,python-ai-ml,database
+npx hotzen@0.0.2 --stack=python-fastapi,python-ai-ml,database
 
 # وب استاتیک + بک‌اند PHP:
-npx hotzen@0.0.1 --stack=php,vanilla-web
+npx hotzen@0.0.2 --stack=php,vanilla-web
 ```
 
 ---
@@ -82,19 +83,19 @@ npx hotzen@0.0.1 --stack=php,vanilla-web
 ### 🩺 سنجش سلامت سیستم و زیرساخت (`doctor`)
 وضعیت گیت، نصب بودن هوک امنیتی pre-commit، وجود اسکنر سکرت‌ها، تعداد قوانین فعال و وضعیت پل‌های هوش مصنوعی را بازرسی می‌کند:
 ```bash
-npx hotzen@0.0.1 doctor
+npx hotzen@0.0.2 doctor
 
 # بازرسی یک پروژه خاص:
-npx hotzen@0.0.1 doctor /path/to/project
+npx hotzen@0.0.2 doctor /path/to/project
 ```
 
 ### 🧪 دروازه ارزیابی و تست خودکار (`verify`)
 متناسب با تکنولوژی پروژه شما، دستورات تست، تایپ‌چکر و لینتر (مثل `flutter test`، `npm test`، `php artisan test`، `cargo test`) را اجرا و نتیجه را به صورت ساختاریافته اعلام می‌کند:
 ```bash
-npx hotzen@0.0.1 verify
+npx hotzen@0.0.2 verify
 
 # اعتبارسنجی یک پروژه خاص:
-npx hotzen@0.0.1 verify /path/to/project
+npx hotzen@0.0.2 verify /path/to/project
 ```
 
 ---
@@ -105,29 +106,29 @@ npx hotzen@0.0.1 verify /path/to/project
 به طور پیش‌فرض پل‌های `gemini`، `claude` و `codex` نصب می‌شوند. با فلگ `--bridges` می‌توانید دستیارهای دیگر را اضافه کنید:
 ```bash
 # نصب پل‌های Cursor و Copilot همراه با استک:
-npx hotzen@0.0.1 --bridges=cursor,copilot
+npx hotzen@0.0.2 --bridges=cursor,copilot
 
 # نصب تمام ۱۴ پل هوش مصنوعی به طور همزمان:
-npx hotzen@0.0.1 --bridges=all
+npx hotzen@0.0.2 --bridges=all
 ```
 
 ### 🌉 استقرار مستقل یک پل (`bridge <name>`)
 تنها فایل‌های کانفیگ یک ابزار خاص هوش مصنوعی را اضافه می‌کند بدون اینکه به پوشه `.agents/` و استک‌های دیگر دست بزند:
 ```bash
 # استقرار پل ادیتور Cursor (.cursorrules و قوانین .cursor/rules/):
-npx hotzen@0.0.1 bridge cursor
+npx hotzen@0.0.2 bridge cursor
 
 # استقرار پل Claude Code (.claude/settings.json و CLAUDE.md):
-npx hotzen@0.0.1 bridge claude
+npx hotzen@0.0.2 bridge claude
 
 # استقرار دستورالعمل‌های GitHub Copilot:
-npx hotzen@0.0.1 bridge copilot
+npx hotzen@0.0.2 bridge copilot
 
 # استقرار پل ادیتور Windsurf (.windsurfrules):
-npx hotzen@0.0.1 bridge windsurf
+npx hotzen@0.0.2 bridge windsurf
 
 # استقرار تمامی پل‌ها با هم:
-npx hotzen@0.0.1 bridge all
+npx hotzen@0.0.2 bridge all
 ```
 
 ---
@@ -138,13 +139,13 @@ npx hotzen@0.0.1 bridge all
 استقرار را بدون اعمال تغییرات در پروژهٔ هدف پیش‌نمایش می‌کند. ممکن است فایل‌ها یا پوشه‌های موقت برای آماده‌سازی ایجاد شوند. دقیقاً نشان می‌دهد چه فایل‌هایی ساخته می‌شدند و از کدام فایل‌های موجود بکاپ (`.bak.<timestamp>`) گرفته می‌شد:
 ```bash
 # شبیه‌سازی استقرار خودکار:
-npx hotzen@0.0.1 --dry-run
+npx hotzen@0.0.2 --dry-run
 
 # شبیه‌سازی استقرار فلاتر:
-npx hotzen@0.0.1 --stack=flutter --dry-run
+npx hotzen@0.0.2 --stack=flutter --dry-run
 
 # شبیه‌سازی نصب پل Cursor:
-npx hotzen@0.0.1 bridge cursor --dry-run
+npx hotzen@0.0.2 bridge cursor --dry-run
 ```
 
 ---
@@ -152,11 +153,11 @@ npx hotzen@0.0.1 bridge cursor --dry-run
 ## ۶. اجرای نسخهٔ مشخص npm
 
 ### 🆙 اجرای نسخهٔ مشخص
-پس از انتشار این نسخه، npx با شمارهٔ نسخهٔ مشخص همان بسته را از npm انتخاب می‌کند. ممکن است از کش استفاده کند و محتوای روز را مستقیماً از GitHub نمی‌گیرد:
+npx با شمارهٔ نسخهٔ مشخص همان بسته را از npm انتخاب می‌کند. ممکن است از کش استفاده کند و محتوای روز را مستقیماً از GitHub نمی‌گیرد:
 ```bash
-npx hotzen@0.0.1
-npx hotzen@0.0.1 doctor
-npx hotzen@0.0.1 verify
+npx hotzen@0.0.2
+npx hotzen@0.0.2 doctor
+npx hotzen@0.0.2 verify
 ```
 
 ---
@@ -165,15 +166,15 @@ npx hotzen@0.0.1 verify
 
 | دستور / الگو | نوع | عملکرد |
 | :--- | :--- | :--- |
-| `npx hotzen@0.0.1` | تعاملی | تشخیص خودکار استک و استقرار با زدن کلید **Enter** |
-| `npx hotzen@0.0.1 detect [path]` | زیرفرمان | فقط شناسایی تکنولوژی، درصد اطمینان و شواهد |
-| `npx hotzen@0.0.1 doctor [path]` | زیرفرمان | بررسی سلامت گیت، هوک‌های امنیتی، اسکنر و پل‌ها |
-| `npx hotzen@0.0.1 verify [path]` | زیرفرمان | اجرای خودکار تست‌ها و لینتر متناسب با پروژه |
-| `npx hotzen@0.0.1 reset` | زیرفرمان | پاک‌سازی مهارت‌های نصب‌شده در پوشهٔ کاری فعلی |
-| `npx hotzen@0.0.1 bridge <name>` | زیرفرمان | استقرار انحصاری فایل‌های یک هوش مصنوعی (`cursor`، `claude` و...) |
-| `core switch` | زیرفرمان CLI | نمایش وضعیت سوییچینگ مدل‌ها، مدل فعال و مسیریابی انطباقی |
-| `core switch on` | زیرفرمان CLI | فعال‌سازی سوییچینگ انطباقی نقش‌ها (مدل سبک در برابر استدلالی قدرتمند) |
-| `core switch off [model]` | زیرفرمان CLI | قفل کردن تمام نقش‌ها روی مدل مشخص‌شده (یا پیش‌فرض پرووایدر) |
+| `npx hotzen@0.0.2` | تعاملی | تشخیص خودکار استک و استقرار با زدن کلید **Enter** |
+| `npx hotzen@0.0.2 detect [path]` | زیرفرمان | فقط شناسایی تکنولوژی، درصد اطمینان و شواهد |
+| `npx hotzen@0.0.2 doctor [path]` | زیرفرمان | بررسی سلامت گیت، هوک‌های امنیتی، اسکنر و پل‌ها |
+| `npx hotzen@0.0.2 verify [path]` | زیرفرمان | اجرای خودکار تست‌ها و لینتر متناسب با پروژه |
+| `npx hotzen@0.0.2 reset` | زیرفرمان | پاک‌سازی مهارت‌های نصب‌شده در پوشهٔ کاری فعلی |
+| `npx hotzen@0.0.2 bridge <name>` | زیرفرمان | استقرار انحصاری فایل‌های یک هوش مصنوعی (`cursor`، `claude` و...) |
+| `core switch` | زیرفرمان CLI | نمایش وضعیت خاموش V1 و کف ایمنی فعال |
+| `core switch on` | زیرفرمان CLI | مسدود در V1؛ ترجیحات ذخیره‌شده تغییر نمی‌کند |
+| `core switch off [model]` | زیرفرمان CLI | مدل ثابتی انتخاب نمی‌کند؛ ترجیحات ذخیره‌شده تغییر نمی‌کند |
 | `core lang` | زیرفرمان CLI | نمایش زبان اصلی شناسایی‌شده و زبان‌های فعال ران‌تایم پروژه |
 | `core lang add <language>` | زیرفرمان CLI | افزودن پویا زبان ران‌تایم برای تسک‌های آتی (ذخیره در `.agents/memory/runtime_config.json`) |
 | `core lang remove <language>` | زیرفرمان CLI | حذف ایمن زبان ثانویه ران‌تایم بدون دستکاری فایل‌های سورس |
@@ -212,7 +213,7 @@ npx hotzen@0.0.1 verify
 * **خطا: هوک گیت تنظیم نشده (`Git pre-commit hook is NOT configured`)**
   - **راه‌حل:** اجرای دستور `git config core.hooksPath .agents/hooks`.
 * **خطا: اسکنر امنیتی یا قوانین ناقص است (`rules/ or security missing`)**
-  - **راه‌حل:** اجرای مجدد `npx hotzen@0.0.1` جهت تعمیر خودکار فایل‌های ناقص بدون تغییر کدهای اصلی.
+  - **راه‌حل:** اجرای مجدد `npx hotzen@0.0.2` جهت تعمیر خودکار فایل‌های ناقص بدون تغییر کدهای اصلی.
 
 ---
 
@@ -234,8 +235,8 @@ npx hotzen@0.0.1 verify
 
 ### 🔄 ۴. اگر اشتباهاً استک دیگری را انتخاب کردم چه کنم؟
 برای تصحیح و استقرار تمیز استک درست بدون تداخل اسکیل‌های قبلی:
-* دستور `npx hotzen@0.0.1 --clean` را بزنید تا اسکیل‌های قدیمی پاک شده و منوی استقرار مجدد باز شود.
-* یا دستور `npx hotzen@0.0.1 reset` را بزنید تا پوشه `.agents/skills` فوراً پاک‌سازی شود.
+* دستور `npx hotzen@0.0.2 --clean` را بزنید تا اسکیل‌های قدیمی پاک شده و منوی استقرار مجدد باز شود.
+* یا دستور `npx hotzen@0.0.2 reset` را بزنید تا پوشه `.agents/skills` فوراً پاک‌سازی شود.
 
 ---
 

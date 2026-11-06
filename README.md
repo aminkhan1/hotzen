@@ -1,8 +1,12 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/aminkhan1/hotzen/main/assets/brand/hotzen-logo.png" alt="HOTZEN logo — a neon circuit shaped like the letter H" width="460">
+</p>
+
 # HOTZEN — Governed AI Engineering Framework
 
-**0.0.1 is a initial experimental release, not a stable release.** This RC was
-unpublished when the distribution was prepared. Isolated Linux runtime
-verification passed. Native Windows runtime is **NOT VERIFIED**.
+**0.0.2 is an unpublished experimental release candidate.** The initial
+0.0.1 release is publicly available on npm, and the GitHub distribution
+repository is public. Native Windows runtime is **NOT VERIFIED**.
 
 HOTZEN deploys stack-specific skills, governance rules, and assistant bridge
 files into a project. The CLI also detects project stacks and runs configured
@@ -11,19 +15,35 @@ files. The full development source repository is separate.
 
 ## Install and get started
 
-**Once this exact RC is published to npm**, install it globally or run it
-directly with npx:
+The published 0.0.1 can show Model Switching status on bare `npx hotzen`.
+To open its deployer explicitly, run `npx --package=hotzen@0.0.1 -- hotzen`.
+The examples below target the 0.0.2 candidate. After npm publication,
+`@0.0.2` selects that exact version and `@rc` selects the version tagged
+`rc`.
 
 ```sh
-npm install --global hotzen@0.0.1
-npx hotzen@0.0.1 --help
+npx hotzen@0.0.2
+npx hotzen@0.0.2 --stack=flutter --bridges=codex
+npx hotzen@0.0.2 --help
+npx hotzen@rc
 ```
 
-**From a local release tarball**, before or after registry publication:
+After 0.0.2 is promoted to `latest`, run `npx hotzen` in the intended project
+to open stack detection or selection. NPX does not permanently install the CLI.
+Publish future candidates with `--tag=rc`. Move `latest` only after explicit
+stable-release approval.
+
+After promotion to `latest`, the following installs the CLI into npm's
+global prefix. Plain `hotzen` requires the installed executable on `PATH`.
 
 ```sh
-npm install --global /absolute/path/to/hotzen-0.0.1.tgz
+npm install -g hotzen
+hotzen --help
 ```
+
+For macOS/Linux, the [GitHub tarball procedure](INSTALL.md#github-release-tarball-macoslinux)
+applies once both the archive and its SHA-256 file are published. It requires
+Node.js and npm and checks the release-specific digest before global installation.
 
 After installation, check the aliases and preview a deployment in your project:
 
@@ -44,7 +64,7 @@ See [installation details](INSTALL.md) and the
 
 <div align="center">
 
-[![Package Version](https://img.shields.io/badge/package-v0.0.1-blue.svg)](INSTALL.md)
+[![Package Version](https://img.shields.io/badge/candidate-v0.0.2-blue.svg)](INSTALL.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Stacks](https://img.shields.io/badge/Tech_Stacks-28_Active-success.svg)](INSTALL.md)
 [![Core Rules](https://img.shields.io/badge/Core_Rules-27_Universal-blueviolet.svg)](INSTALL.md)
@@ -190,7 +210,7 @@ HOTZEN 2.0 introduces **Evidence-Based Stack Auto-Detection**, a system health *
 Simply navigate to your project directory and run:
 
 ```bash
-npx hotzen@0.0.1
+npx hotzen@0.0.2
 ```
 
 The CLI automatically inspects your project manifests (`composer.json` for Laravel, `pubspec.yaml` for Flutter, `package.json` for React/Next/Vue/Nest, `Cargo.toml` for Rust, `go.mod` for Go, etc.) and prompts:
@@ -216,14 +236,14 @@ If you want to manually specify one or more stacks (or override auto-detection):
 
 ```bash
 # Explicit single stack:
-npx hotzen@0.0.1 --stack=flutter
-npx hotzen@0.0.1 --stack=laravel
+npx hotzen@0.0.2 --stack=flutter
+npx hotzen@0.0.2 --stack=laravel
 
 # Composable multi-stack (e.g., Next.js frontend + Database architecture):
-npx hotzen@0.0.1 --stack=react-nextjs,database
+npx hotzen@0.0.2 --stack=react-nextjs,database
 
 # Safe preview without modifying files on disk:
-npx hotzen@0.0.1 --dry-run
+npx hotzen@0.0.2 --dry-run
 ```
 
 ---
@@ -234,15 +254,15 @@ HOTZEN CLI includes built-in diagnostics and verification tools:
 
 | Command | Purpose | Example |
 | :--- | :--- | :--- |
-| `npx hotzen@0.0.1` | Auto-detects stack and deploys with **Enter** confirmation | `npx hotzen@0.0.1` |
-| `npx hotzen@0.0.1 detect` | Scans project and displays detected technology & confidence score | `npx hotzen@0.0.1 detect` |
-| `npx hotzen@0.0.1 doctor` | Inspects Git status, security hooks, active AI bridges, and governance rules | `npx hotzen@0.0.1 doctor` |
-| `npx hotzen@0.0.1 verify` | Runs automated verification matrix (lint, type-check where configured, tests) for current stack | `npx hotzen@0.0.1 verify` |
-| `npx hotzen@0.0.1 reset` | Purges installed skills from `.agents/skills` to reset accidental stack choices | `npx hotzen@0.0.1 reset` |
-| `npx hotzen@0.0.1 bridge <name>` | Deploys only bridge configuration for a specific AI agent (`cursor`, `claude`, `all`) | `npx hotzen@0.0.1 bridge cursor` |
-| `core switch` | Displays current model switching state, active model, and adaptive routing status | `core switch` |
-| `core switch on` | Enables adaptive model routing across Planner, Coder, and Critic roles | `core switch on` |
-| `core switch off [model]` | Locks all agent roles to the specified model (or provider default) without dynamic switching | `core switch off` or `core switch off [model]` |
+| `npx hotzen@0.0.2` | Auto-detects stack and deploys with **Enter** confirmation | `npx hotzen@0.0.2` |
+| `npx hotzen@0.0.2 detect` | Scans project and displays detected technology & confidence score | `npx hotzen@0.0.2 detect` |
+| `npx hotzen@0.0.2 doctor` | Inspects Git status, security hooks, active AI bridges, and governance rules | `npx hotzen@0.0.2 doctor` |
+| `npx hotzen@0.0.2 verify` | Runs automated verification matrix (lint, type-check where configured, tests) for current stack | `npx hotzen@0.0.2 verify` |
+| `npx hotzen@0.0.2 reset` | Purges installed skills from `.agents/skills` to reset accidental stack choices | `npx hotzen@0.0.2 reset` |
+| `npx hotzen@0.0.2 bridge <name>` | Deploys only bridge configuration for a specific AI agent (`cursor`, `claude`, `all`) | `npx hotzen@0.0.2 bridge cursor` |
+| `core switch` | Shows frozen OFF status and the active Safety Floor | `core switch` |
+| `core switch on` | Blocked in V1. Saved preferences are unchanged | `core switch on` |
+| `core switch off [model]` | Leaves saved preferences unchanged and does not select a fixed model | `core switch off` or `core switch off [model]` |
 | `core lang` | Displays primary detected language and active runtime project languages | `core lang` |
 | `core lang add <lang>` | Adds a language dynamically for future tasks (persisted in `.agents/memory/runtime_config.json`) | `core lang add python` |
 | `core lang remove <lang>` | Removes a secondary runtime language from future tasks safely | `core lang remove python` |
@@ -275,21 +295,14 @@ The following branch synchronization commands apply only to the separate complet
 
 ### 📦 Method 1: Supported npm/local installation
 
-Install the owner-provided tarball with `npm install --global /absolute/path/to/hotzen-0.0.1.tgz`, then run these commands in your project. Registry installation is available only after publication of the chosen version. No private GitHub access is needed.
+From your project, use the exact npm version once 0.0.2 is published:
 
-#### 🍏 On macOS & Linux:
-```bash
-# Auto-detect or interactive prompt:
-hotzen
-
-# Or specify your stack directly:
-hotzen --stack=laravel
+```sh
+npx hotzen@0.0.2
 ```
 
-#### 🪟 On Windows (PowerShell):
-```powershell
-hotzen
-```
+On macOS/Linux, if the installed executable is on `PATH`, you can run
+`hotzen` or `hotzen --stack=laravel` instead.
 
 ---
 
@@ -299,10 +312,10 @@ Need a full-stack environment combining multiple technologies (e.g. **PHP Backen
 
 ```bash
 # In interactive mode, type stack numbers separated by comma without spaces (e.g. 4,15):
-Enter number(s) or name(s) separated by comma [e.g. 4,15 or default: vanilla-web]: 4,15
+Enter number(s) or name(s) separated by comma [explicit selection required; no default]: 4,15
 
 # Or type stack names separated by comma:
-Enter number(s) or name(s) separated by comma [e.g. 4,15 or default: vanilla-web]: react,laravel
+Enter number(s) or name(s) separated by comma [explicit selection required; no default]: react,laravel
 
 # Via NPX flag:
 hotzen --stack=php,vanilla-web,database
@@ -371,7 +384,6 @@ cd my-flutter-app
 
 To install the CLI permanently on your machine (delegates to the unified Node engine):
 * **macOS / Linux:** `bash cli/install-mac-linux.sh`
-* **Windows:** `powershell -ExecutionPolicy Bypass -File cli\install-windows.ps1`
 * **Run anywhere after PATH setup:** `core` (aliases: `agent-hub`, `agent-hub-init`). These wrappers reference the source directory; keep it in place. Existing unrelated `core` commands are protected. See [first-use and PATH details](INSTALL.md).
 
 ---
@@ -387,23 +399,42 @@ git submodule add <authorized-private-repository> .agent-core
 
 ## 🔄 How to Switch Stacks in Any Project
 
-#### 1. In Git-Cloned Projects:
-Simply checkout the target branch:
+#### 1. In Authorized Legacy Private Checkouts:
+If the checkout contains the stack branches, switch to the desired branch:
 ```bash
 git checkout react          # Switches to React 19
 git checkout python-fastapi # Switches to FastAPI
 git checkout unity          # Switches to Unity 6
 ```
 
-#### 2. In Existing Projects via CLI / One-Liners:
-Re-run the command with the new stack flag. Only `.agents/` and bridge files will be updated without modifying your source code:
+#### 2. In Existing Projects via NPX:
+
+After 0.0.2 is published to npm, rerun the pinned command in the project
+directory with the new stack. Deployment merges the selected skills into
+`.agents/skills/`. Skills from an earlier deployment can remain.
+
 ```bash
-npx hotzen@0.0.1 --stack=rust
+npx hotzen@0.0.2 --stack=rust
 ```
 
+- Under `.agents/`, deployment adds or updates rules, skills, hook and scanner
+  files, and MCP configuration. It initializes missing memory files and
+  preserves existing ones.
+- At the project root, deployment creates missing `AGENTS.md`, `.mcp.json`,
+  and `STACK_RULES.md` or updates their managed content. It creates
+  `.gitignore` if missing or appends missing ignore rules to an existing file.
+- The selected bridges add or update their own files, such as `CODEX.md` and
+  `.codexignore` for Codex. When the CLI changes an existing file through a
+  backed-up copy or merge, it saves the previous content as
+  `<file>.bak.<timestamp>`. The `.gitignore` update appends rules without
+  creating a backup.
+
 #### 3. In Fullstack / Monorepo Projects:
-* In root directory: `npx hotzen@0.0.1 --stack=react-nextjs`
-* In `backend/` directory: `npx hotzen@0.0.1 --stack=laravel`
+
+After 0.0.2 is published to npm, run each command from the directory it targets:
+
+- Project root: `npx hotzen@0.0.2 --stack=react-nextjs`
+- `backend/`: `npx hotzen@0.0.2 --stack=laravel`
 
 ---
 
@@ -414,24 +445,24 @@ Whenever new core rules, AI bridges (such as Cursor, DeepSeek, Qwen), or special
 ---
 
 ### 1️⃣ Method 1: Using NPX (Zero-Install & Instant)
-After publication, select a specific npm release to deploy its bundled resources. Before publication, install the owner-provided tarball and use `hotzen` with the same arguments:
+Use NPX to deploy the bundled resources for the selected npm version. With the GitHub tarball installed, use `hotzen` with the same arguments:
 ```bash
 # Interactive menu update:
-npx hotzen@0.0.1
+npx hotzen@0.0.2
 
 # Update with a specific stack flag:
-npx hotzen@0.0.1 --stack=flutter
+npx hotzen@0.0.2 --stack=flutter
 
 # Multi-stack update:
-npx hotzen@0.0.1 --stack=react-nextjs,laravel
+npx hotzen@0.0.2 --stack=react-nextjs,laravel
 
 # Safely preview update changes first (no deployment changes to the target project):
-npx hotzen@0.0.1 --stack=flutter --dry-run
+npx hotzen@0.0.2 --stack=flutter --dry-run
 ```
 
 ---
 
-### 2️⃣ Method 2: Using installed HOTZEN (macOS, Linux & Windows)
+### 2️⃣ Method 2: Using installed HOTZEN (macOS/Linux)
 Run the installed CLI directly inside your project directory:
 
 * **macOS & Linux (installed CLI):**
@@ -444,15 +475,6 @@ Run the installed CLI directly inside your project directory:
 
   # Safely preview update changes first:
   hotzen --stack=flutter --dry-run
-  ```
-
-* **Windows (PowerShell):**
-  ```powershell
-  # Interactive mode:
-  hotzen
-
-  # Direct stack update:
-  hotzen --stack=flutter
   ```
 
 ---
@@ -507,7 +529,7 @@ HOTZEN V1 introduces an intelligent, autonomous execution layer that bridges hig
 │ 🧠 CORE V1 RUNTIME ARCHITECTURE                                                        │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │  1. 🌐 Runtime Languages ──► core lang (add / remove dynamically with zero restart)   │
-│  2. ⚖️ Adaptive Allocator ──► core switch (economical vs frontier models + Safety Floor)│
+│  2. ⚖️ Model Switching status ──► core switch (frozen OFF + Safety Floor)│
 │  3. 🛡️ Reliability Guards ──► Quota & context window health checks (OK/WARN/CRITICAL)  │
 │  4. 🛑 Plan Approval Gate ──► Mandatory user approval before ANY implementation/write  │
 │  5. 🧪 Isolated Verifier ──► Scoped tests, zero external side-effects (offline & mock)│
@@ -554,27 +576,13 @@ While stack templates deploy pre-configured skills and architecture rules, proje
 
 ---
 
-### ⚖️ 2. Adaptive Model Routing & Non-Negotiable Safety Floor (`core switch`)
+### ⚖️ 2. Model Switching status and Safety Floor (`core switch`)
 
-HOTZEN dynamically matches agent roles to task risk tiers, while strictly enforcing code safety:
-
-* **Lightweight vs. Strong Reasoning Role Allocation**:
-  * **Low-Risk Roles** (Context exploration, minor bug fixes, documentation): Routed to lightweight, high-throughput models (e.g. `gpt-5.6-luna` or provider-selected lightweight model).
-  * **High-Risk Roles** (Clean Architecture refactoring, database transactions, security scanning): Strictly routed to strong reasoning models (e.g. `gpt-6-astra` or provider-selected strong model).
-* **The Non-Negotiable Safety Floor**:
-  * Core enforces an immutable invariant: **High-risk tasks are NEVER permitted to execute on lightweight models**, even if model switching is turned off or a lightweight model is requested. Security and architectural integrity always override cost optimization.
-* **Runtime Model Switching Toggle**:
-  ```bash
-  # Check current switching state and active model:
-  core switch
-
-  # Enable adaptive per-role model routing (default):
-  core switch on
-
-  # Lock all agent roles to a fixed model (disables dynamic switching):
-  core switch off
-  core switch off <model-id>
-  ```
+`core switch` shows the current status. Automatic Model Switching is frozen
+OFF in V1. `core switch on` is blocked, and `core switch off [model]` does
+not select a fixed model. Neither operation changes saved preferences.
+The Safety Floor remains active and enforces model capability requirements
+for high-risk tasks.
 
 ---
 
@@ -711,8 +719,8 @@ flowchart TD
     User([👤 User Request]) --> PlanPhase["🧠 1. Lead Planner & Context Engine
 Decompose Objective & Inject Runtime Languages"]
 
-    PlanPhase --> AllocPhase["⚖️ 2. Adaptive Model Allocator & Guards
-Per-Role Models, Safety Floor & Quota/Context Evaluation"]
+    PlanPhase --> AllocPhase["⚖️ 2. Model Capability & Reliability Guards
+Safety Floor & Quota/Context Evaluation"]
 
     AllocPhase --> GatekeeperPlan{"🛑 3. Mandatory Plan Approval Gate
 User Decision: [Y] Approve / [N] Reject / [C] Cancel"}
@@ -860,7 +868,7 @@ Mandatory Stop & Manual Approval Request"}
 | **🛡️ Safe Non-Destructive Deployment** | CLI & one-liners create `<file>.bak.<timestamp>` when overwriting existing files | **Automatic Backup** |
 | **🔍 Simulation Mode** | Flag `--dry-run` allows risk-free preview of all file modifications | **Read-Only Inspection** |
 | **🛑 Mandatory Plan Approval Gate** | Pre-execution freeze requiring user approval before Coder invocations (0 writes on reject/cancel) | **Hard Pre-Execution Gate** |
-| **⚖️ Adaptive Routing & Safety Floor** | Role-to-risk matching with non-negotiable strong reasoning model guarantee on high-risk tasks | **Architectural Invariant** |
+| **⚖️ Model Safety Floor** | Enforces model capability requirements on high-risk tasks | **Architectural Invariant** |
 | **🚨 Resilient Failure UX** | Structured failure contracts with explicit user choices (`[R]etry`, `[B]ypass`, `[C]ancel`) | **Zero Lock-in Contract** |
 | **🌐 Runtime Language Engine** | Dynamic per-task multi-language support (`core lang`) without project restart or file damage | **Non-Destructive CLI** |
 | **🏛️ Workspace & Cache Isolation** | Zero repository history pollution; local SQLite database (`database.sqlite`) remains local & gitignored | **Strict Repository Hygiene** |
@@ -919,17 +927,17 @@ Mandatory Stop & Manual Approval Request"}
    * **How to Add Bridges to your Project**:
      ```bash
      # Add during installation:
-     npx hotzen@0.0.1 --stack=flutter --bridges=cursor,copilot
+     npx hotzen@0.0.2 --stack=flutter --bridges=cursor,copilot
 
      # Or add anytime to an existing project:
-     npx hotzen@0.0.1 bridge cursor
-     npx hotzen@0.0.1 bridge copilot
+     npx hotzen@0.0.2 bridge cursor
+     npx hotzen@0.0.2 bridge copilot
      ```
 
-6. **⚖️ Adaptive Model Allocator & Non-Negotiable Safety Floor (`core/allocation/`)**:
-   * Evaluates task risk and routes roles dynamically: lightweight models for low-risk tasks (exploration, minor edits) and strong reasoning models for high-risk tasks.
+6. **⚖️ Model Capability & Non-Negotiable Safety Floor (`core/allocation/`)**:
+   * Evaluates task risk to apply model capability requirements.
    * **Safety Floor**: High-risk tasks (Clean Architecture, database mutations, security) are strictly prohibited from executing on lightweight models, preserving code quality even when switching is turned off.
-   * Runtime Toggle: Manageable via `core switch`, `core switch on`, and `core switch off [model]`.
+   * V1 status: automatic switching is frozen OFF. Use `core switch` to view status.
 
 7. **🛑 Mandatory Pre-Execution Plan Approval Gate (`core/workflow/plan_display.js`)**:
    * Pre-execution freeze: Planning, model allocation, token budgets, and context window health checks complete before code execution begins.
@@ -1046,7 +1054,7 @@ Use `core lang add <language>` (e.g., `core lang add python`) to add secondary r
 **No. Absolutely not.** Under the ironclad **Strict Git Human Guardian Law**, no agent is permitted to execute `git commit`, `git push`, `git merge`, or `git rebase` autonomously. All modifications must be presented via `git status` for your explicit manual confirmation.
 
 ### Q5: How can I preview file modifications before running an installer or update?
-Pass the `--dry-run` flag to any deployment or update command (e.g., `npx hotzen@0.0.1 --dry-run` or `hotzen --dry-run`). Preview deployment without applying changes to the target project. Temporary staging files or directories may be created.
+Pass the `--dry-run` flag to any deployment or update command (e.g., `npx hotzen@0.0.2 --dry-run` or `hotzen --dry-run`). Preview deployment without applying changes to the target project. Temporary staging files or directories may be created.
 
 ---
 

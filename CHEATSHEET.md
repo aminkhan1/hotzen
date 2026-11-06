@@ -1,14 +1,14 @@
 # ⚡ HOTZEN — Governed AI Engineering Framework - CLI Cheatsheet
 
-> HOTZEN candidate `0.0.1` is not yet published. Registry commands below
-> require publication of that exact version; until then use an approved local
-> distribution ([INSTALL.md](INSTALL.md)). `core` and `agent-hub-init` remain
-> compatible CLI aliases; `agent-hub` remains a local installer alias.
+> These examples target unpublished candidate 0.0.2. Use `npx hotzen@0.0.2`
+> after publication and `npx hotzen` after promotion to `latest`.
+> For published 0.0.1, `npx --package=hotzen@0.0.1 -- hotzen` opens the
+> interactive deployer. See [INSTALL.md](INSTALL.md).
 > Remote one-liners below are legacy private bootstrap routes, not public HOTZEN
 > endpoints. Normal packaged installation uses bundled resources.
 
 
-> Quick reference guide for all commands, modes, subcommands, and flags available via `npx hotzen@0.0.1` once this exact RC is published. For a local tarball installation, use the same arguments with `hotzen`. See [INSTALL.md](INSTALL.md).
+> Quick reference guide for all commands, modes, subcommands, and flags available via `npx hotzen@0.0.2`. For a local tarball installation, use the same arguments with `hotzen`. See [INSTALL.md](INSTALL.md).
 
 ---
 
@@ -30,17 +30,17 @@
 ### 🚀 Instant Deployment (Recommended)
 Inspects repository manifests (`composer.json`, `pubspec.yaml`, `package.json`, `Cargo.toml`, etc.), auto-detects the technology, and prompts you to hit Enter:
 ```bash
-npx hotzen@0.0.1
+npx hotzen@0.0.2
 ```
 
 ### 🔍 Scan & Detect Stack (Read-Only)
 Scans the current project (or a target directory) and outputs the detected stack, confidence score, and evidence without modifying any files:
 ```bash
 # Current directory:
-npx hotzen@0.0.1 detect
+npx hotzen@0.0.2 detect
 
 # Specific project path:
-npx hotzen@0.0.1 detect /path/to/my-project
+npx hotzen@0.0.2 detect /path/to/my-project
 ```
 
 ---
@@ -50,11 +50,11 @@ npx hotzen@0.0.1 detect /path/to/my-project
 ### 📌 Deploy a Specific Stack (Manual Override)
 Overrides auto-detection and deploys specialized senior skills and architectural rules for a given stack:
 ```bash
-npx hotzen@0.0.1 --stack=laravel
-npx hotzen@0.0.1 --stack=flutter
-npx hotzen@0.0.1 --stack=react-nextjs
-npx hotzen@0.0.1 --stack=rust
-npx hotzen@0.0.1 --stack=python-fastapi
+npx hotzen@0.0.2 --stack=laravel
+npx hotzen@0.0.2 --stack=flutter
+npx hotzen@0.0.2 --stack=react-nextjs
+npx hotzen@0.0.2 --stack=rust
+npx hotzen@0.0.2 --stack=python-fastapi
 ```
 
 ### 🧩 Composable Multi-Stack (Polyglot / Fullstack)
@@ -67,13 +67,13 @@ Enter number(s) or name(s) separated by comma [e.g. 4,15 or default: flutter]: r
 
 # CLI Flags:
 # Frontend + Backend + Database:
-npx hotzen@0.0.1 --stack=react-nextjs,laravel,database
+npx hotzen@0.0.2 --stack=react-nextjs,laravel,database
 
 # Python FastAPI + AI/ML + Database:
-npx hotzen@0.0.1 --stack=python-fastapi,python-ai-ml,database
+npx hotzen@0.0.2 --stack=python-fastapi,python-ai-ml,database
 
 # Web + PHP:
-npx hotzen@0.0.1 --stack=php,vanilla-web
+npx hotzen@0.0.2 --stack=php,vanilla-web
 ```
 
 ---
@@ -83,19 +83,19 @@ npx hotzen@0.0.1 --stack=php,vanilla-web
 ### 🩺 System Health Check (`doctor`)
 Inspects the repository for Git initialization, pre-commit security hook configuration, enterprise secret scanner installation, governance rule counts, active AI bridges, and memory status:
 ```bash
-npx hotzen@0.0.1 doctor
+npx hotzen@0.0.2 doctor
 
 # Inspect a specific path:
-npx hotzen@0.0.1 doctor /path/to/project
+npx hotzen@0.0.2 doctor /path/to/project
 ```
 
 ### 🧪 Automated Quality Gate (`verify`)
 Runs stack-specific lint, type-check, and test suites (e.g., `flutter test`, `npm test`, `php artisan test`, `cargo test`, `pytest`) and reports structured pass/fail results:
 ```bash
-npx hotzen@0.0.1 verify
+npx hotzen@0.0.2 verify
 
 # Verify a specific path:
-npx hotzen@0.0.1 verify /path/to/project
+npx hotzen@0.0.2 verify /path/to/project
 ```
 
 ---
@@ -106,29 +106,29 @@ npx hotzen@0.0.1 verify /path/to/project
 By default, `gemini`, `claude`, and `codex` bridges are installed. Use `--bridges` to specify your preferred AI assistants:
 ```bash
 # Install Cursor and Copilot bridges with your stack:
-npx hotzen@0.0.1 --bridges=cursor,copilot
+npx hotzen@0.0.2 --bridges=cursor,copilot
 
 # Install ALL 14 supported AI bridges:
-npx hotzen@0.0.1 --bridges=all
+npx hotzen@0.0.2 --bridges=all
 ```
 
 ### 🌉 Standalone Bridge Deployer (`bridge <name>`)
 Deploy ONLY the configuration and rules for a specific AI tool without touching existing `.agents/` stacks:
 ```bash
 # Deploy Cursor IDE rules (.cursorrules, .cursor/rules/):
-npx hotzen@0.0.1 bridge cursor
+npx hotzen@0.0.2 bridge cursor
 
 # Deploy Claude Code settings (.claude/settings.json, CLAUDE.md):
-npx hotzen@0.0.1 bridge claude
+npx hotzen@0.0.2 bridge claude
 
 # Deploy GitHub Copilot instructions:
-npx hotzen@0.0.1 bridge copilot
+npx hotzen@0.0.2 bridge copilot
 
 # Deploy Windsurf rules (.windsurfrules):
-npx hotzen@0.0.1 bridge windsurf
+npx hotzen@0.0.2 bridge windsurf
 
 # Deploy all AI bridges at once:
-npx hotzen@0.0.1 bridge all
+npx hotzen@0.0.2 bridge all
 ```
 
 ---
@@ -139,25 +139,25 @@ npx hotzen@0.0.1 bridge all
 Preview deployment without applying changes to the target project. Temporary staging files or directories may be created. Shows exactly which files would be created and which would be backed up (`.bak.<timestamp>`):
 ```bash
 # Simulate auto-detect deploy:
-npx hotzen@0.0.1 --dry-run
+npx hotzen@0.0.2 --dry-run
 
 # Simulate specific stack deploy:
-npx hotzen@0.0.1 --stack=flutter --dry-run
+npx hotzen@0.0.2 --stack=flutter --dry-run
 
 # Simulate bridge deployment:
-npx hotzen@0.0.1 bridge cursor --dry-run
+npx hotzen@0.0.2 bridge cursor --dry-run
 ```
 
 ---
 
 ## 6. Run a Specific npm Version
 
-### 🆙 Run the Published RC
-Once this RC is published, version-pinned npx resolves that exact npm version. It may reuse its cache and does not fetch current content directly from GitHub:
+### 🆙 Run the exact version after publication
+Version-pinned npx resolves that exact npm version. It may reuse its cache and does not fetch current content directly from GitHub:
 ```bash
-npx hotzen@0.0.1
-npx hotzen@0.0.1 doctor
-npx hotzen@0.0.1 verify
+npx hotzen@0.0.2
+npx hotzen@0.0.2 doctor
+npx hotzen@0.0.2 verify
 ```
 
 ---
@@ -166,15 +166,15 @@ npx hotzen@0.0.1 verify
 
 | Command / Pattern | Type | What It Does |
 | :--- | :--- | :--- |
-| `npx hotzen@0.0.1` | Interactive | Auto-detects project stack & prompts for 1-click Enter deploy |
-| `npx hotzen@0.0.1 detect [path]` | Subcommand | Scans and prints detected stack, confidence score & evidence |
-| `npx hotzen@0.0.1 doctor [path]` | Subcommand | Checks health of Git, security hooks, bridges, rules & memory |
-| `npx hotzen@0.0.1 verify [path]` | Subcommand | Executes stack-appropriate test & lint quality gate |
-| `npx hotzen@0.0.1 reset` | Subcommand | Purges installed skills in the current working directory |
-| `npx hotzen@0.0.1 bridge <name>` | Subcommand | Deploys only files for a specific AI agent (`cursor`, `claude`, `all`) |
-| `core switch` | CLI Subcommand | Displays model switching status, active model, and adaptive routing |
-| `core switch on` | CLI Subcommand | Enables adaptive per-role model switching (lightweight vs strong reasoning) |
-| `core switch off [model]` | CLI Subcommand | Locks all roles to the specified model (or provider default) |
+| `npx hotzen@0.0.2` | Interactive | Auto-detects project stack & prompts for 1-click Enter deploy |
+| `npx hotzen@0.0.2 detect [path]` | Subcommand | Scans and prints detected stack, confidence score & evidence |
+| `npx hotzen@0.0.2 doctor [path]` | Subcommand | Checks health of Git, security hooks, bridges, rules & memory |
+| `npx hotzen@0.0.2 verify [path]` | Subcommand | Executes stack-appropriate test & lint quality gate |
+| `npx hotzen@0.0.2 reset` | Subcommand | Purges installed skills in the current working directory |
+| `npx hotzen@0.0.2 bridge <name>` | Subcommand | Deploys only files for a specific AI agent (`cursor`, `claude`, `all`) |
+| `core switch` | CLI Subcommand | Shows frozen OFF status and the active Safety Floor |
+| `core switch on` | CLI Subcommand | Blocked in V1. Saved preferences are unchanged |
+| `core switch off [model]` | CLI Subcommand | Leaves saved preferences unchanged and does not select a fixed model |
 | `core lang` | CLI Subcommand | Displays primary detected language and active runtime languages |
 | `core lang add <language>` | CLI Subcommand | Adds a secondary language dynamically (persisted in `.agents/memory/runtime_config.json`) |
 | `core lang remove <language>` | CLI Subcommand | Removes a secondary runtime language safely |
@@ -212,7 +212,7 @@ The `doctor` subcommand is strictly diagnostic; it inspects repository configura
 * **Error: `Git pre-commit hook is NOT configured`**
   - **Fix:** Run `git config core.hooksPath .agents/hooks`.
 * **Error: `Governance rules (.agents/rules/) or security scanner missing`**
-  - **Fix:** Re-run `npx hotzen@0.0.1` to auto-repair any missing components without modifying your project source code.
+  - **Fix:** Re-run `npx hotzen@0.0.2` to auto-repair any missing components without modifying your project source code.
 
 ---
 
@@ -234,8 +234,8 @@ Default installation uses bundled resources without implicit private GitHub acce
 
 ### 🔄 4. What if I accidentally selected the wrong tech stack?
 To re-select or switch stacks cleanly without keeping old skills:
-* Run `npx hotzen@0.0.1 --clean` to purge old skills and select a fresh stack.
-* Or run `npx hotzen@0.0.1 reset` to clean `.agents/skills` immediately.
+* Run `npx hotzen@0.0.2 --clean` to purge old skills and select a fresh stack.
+* Or run `npx hotzen@0.0.2 reset` to clean `.agents/skills` immediately.
 
 ---
 
