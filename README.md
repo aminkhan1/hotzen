@@ -1,6 +1,6 @@
 # HOTZEN — Governed AI Engineering Framework
 
-**2.5.0-rc.1 is a Release Candidate, not a stable release.** This RC was
+**0.0.1 is a initial experimental release, not a stable release.** This RC was
 unpublished when the distribution was prepared. Isolated Linux runtime
 verification passed. Native Windows runtime is **NOT VERIFIED**.
 
@@ -15,14 +15,14 @@ files. The full development source repository is separate.
 directly with npx:
 
 ```sh
-npm install --global hotzen@2.5.0-rc.1
-npx hotzen@2.5.0-rc.1 --help
+npm install --global hotzen@0.0.1
+npx hotzen@0.0.1 --help
 ```
 
 **From a local release tarball**, before or after registry publication:
 
 ```sh
-npm install --global /absolute/path/to/hotzen-2.5.0-rc.1.tgz
+npm install --global /absolute/path/to/hotzen-0.0.1.tgz
 ```
 
 After installation, check the aliases and preview a deployment in your project:
@@ -44,7 +44,7 @@ See [installation details](INSTALL.md) and the
 
 <div align="center">
 
-[![Package Version](https://img.shields.io/badge/package-v2.5.0--rc.1-blue.svg)](INSTALL.md)
+[![Package Version](https://img.shields.io/badge/package-v0.0.1-blue.svg)](INSTALL.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Stacks](https://img.shields.io/badge/Tech_Stacks-28_Active-success.svg)](INSTALL.md)
 [![Core Rules](https://img.shields.io/badge/Core_Rules-27_Universal-blueviolet.svg)](INSTALL.md)
@@ -167,7 +167,7 @@ HOTZEN uses a clean **Branch-Per-Stack** git architecture across **29 Git branch
 
 > [!IMPORTANT]
 > **Clarification of Architectural Capabilities**:
-> - **Stack Installation Support**: 28 pre-configured templates delivering full architectural rules, specialized skills, and test baselines via CLI deployment and branch checkouts (e.g., Flutter, React 19, Laravel 11, Rust 2024).
+> - **Stack Installation Support**: 28 pre-configured templates delivering full architectural rules, specialized skills, and test baselines via bundled CLI deployment (e.g., Flutter, React 19, Laravel 11, Rust 2024).
 > - **Runtime Language Configuration**: Dynamic per-task multi-language awareness via `core lang` (`core lang add <language>`, `core lang remove <language>`) with zero project restart, zero source file mutation, and configuration persistence in `.agents/memory/runtime_config.json` (under `languages` and `primaryLanguage`).
 > - **AI Bridge & Configuration Support**: Instruction files, MCP configuration, ignore patterns, and slash commands across 14 AI environments (`gemini`, `claude`, `codex`, `cursor`, `copilot`, `windsurf`, `cline`, `aider`, `deepseek`, `qwen`, `codestral`, `ollama`, `kimi`, `opencode`).
 > - **Core Provider Execution Adapters**: Dedicated execution adapters in `core/allocation/adapters/` for OpenAI Codex (`codex_adapter.js`) and Anthropic Claude Code (`claude_code_adapter.js`). Codex, Antigravity and Claude have historical real-execution evidence limited to the Tasks actually tested. Native host execution is distinct from a Core-managed Provider adapter; this evidence does not establish universal task or host coverage. The other bridges provide workspace configuration integration without implying a managed execution adapter.
@@ -190,7 +190,7 @@ HOTZEN 2.0 introduces **Evidence-Based Stack Auto-Detection**, a system health *
 Simply navigate to your project directory and run:
 
 ```bash
-npx hotzen@2.5.0-rc.1
+npx hotzen@0.0.1
 ```
 
 The CLI automatically inspects your project manifests (`composer.json` for Laravel, `pubspec.yaml` for Flutter, `package.json` for React/Next/Vue/Nest, `Cargo.toml` for Rust, `go.mod` for Go, etc.) and prompts:
@@ -216,14 +216,14 @@ If you want to manually specify one or more stacks (or override auto-detection):
 
 ```bash
 # Explicit single stack:
-npx hotzen@2.5.0-rc.1 --stack=flutter
-npx hotzen@2.5.0-rc.1 --stack=laravel
+npx hotzen@0.0.1 --stack=flutter
+npx hotzen@0.0.1 --stack=laravel
 
 # Composable multi-stack (e.g., Next.js frontend + Database architecture):
-npx hotzen@2.5.0-rc.1 --stack=react-nextjs,database
+npx hotzen@0.0.1 --stack=react-nextjs,database
 
 # Safe preview without modifying files on disk:
-npx hotzen@2.5.0-rc.1 --dry-run
+npx hotzen@0.0.1 --dry-run
 ```
 
 ---
@@ -234,12 +234,12 @@ HOTZEN CLI includes built-in diagnostics and verification tools:
 
 | Command | Purpose | Example |
 | :--- | :--- | :--- |
-| `npx hotzen@2.5.0-rc.1` | Auto-detects stack and deploys with **Enter** confirmation | `npx hotzen@2.5.0-rc.1` |
-| `npx hotzen@2.5.0-rc.1 detect` | Scans project and displays detected technology & confidence score | `npx hotzen@2.5.0-rc.1 detect` |
-| `npx hotzen@2.5.0-rc.1 doctor` | Inspects Git status, security hooks, active AI bridges, and governance rules | `npx hotzen@2.5.0-rc.1 doctor` |
-| `npx hotzen@2.5.0-rc.1 verify` | Runs automated verification matrix (lint, type-check where configured, tests) for current stack | `npx hotzen@2.5.0-rc.1 verify` |
-| `npx hotzen@2.5.0-rc.1 reset` | Purges installed skills from `.agents/skills` to reset accidental stack choices | `npx hotzen@2.5.0-rc.1 reset` |
-| `npx hotzen@2.5.0-rc.1 bridge <name>` | Deploys only bridge configuration for a specific AI agent (`cursor`, `claude`, `all`) | `npx hotzen@2.5.0-rc.1 bridge cursor` |
+| `npx hotzen@0.0.1` | Auto-detects stack and deploys with **Enter** confirmation | `npx hotzen@0.0.1` |
+| `npx hotzen@0.0.1 detect` | Scans project and displays detected technology & confidence score | `npx hotzen@0.0.1 detect` |
+| `npx hotzen@0.0.1 doctor` | Inspects Git status, security hooks, active AI bridges, and governance rules | `npx hotzen@0.0.1 doctor` |
+| `npx hotzen@0.0.1 verify` | Runs automated verification matrix (lint, type-check where configured, tests) for current stack | `npx hotzen@0.0.1 verify` |
+| `npx hotzen@0.0.1 reset` | Purges installed skills from `.agents/skills` to reset accidental stack choices | `npx hotzen@0.0.1 reset` |
+| `npx hotzen@0.0.1 bridge <name>` | Deploys only bridge configuration for a specific AI agent (`cursor`, `claude`, `all`) | `npx hotzen@0.0.1 bridge cursor` |
 | `core switch` | Displays current model switching state, active model, and adaptive routing status | `core switch` |
 | `core switch on` | Enables adaptive model routing across Planner, Coder, and Critic roles | `core switch on` |
 | `core switch off [model]` | Locks all agent roles to the specified model (or provider default) without dynamic switching | `core switch off` or `core switch off [model]` |
@@ -251,7 +251,9 @@ HOTZEN CLI includes built-in diagnostics and verification tools:
 ---
 
 ### 🔄 Branch Synchronization & Drift Detection
-The 28 stack branches are the release artifacts deployed by the CLI, while `main` is the central source of truth. To ensure all branches stay in sync and detect configuration drift:
+The CLI recognizes 28 stack identifiers. Each stack bundles its rules and specialized skills under `stacks/<identifier>/`. Default deployment selects those local resources without private GitHub access. Language-specific branches in the private development repository are not needed for public installation. Explicit legacy remote workflows may require authorized private access.
+
+The following branch synchronization commands apply only to the separate complete private development source checkout:
 
 - **Check Drift Across All 28 Branches**:
   ```bash
@@ -273,7 +275,7 @@ The 28 stack branches are the release artifacts deployed by the CLI, while `main
 
 ### 📦 Method 1: Supported npm/local installation
 
-Install the owner-provided tarball with `npm install --global /absolute/path/to/hotzen-2.5.0-rc.1.tgz`, then run these commands in your project. Registry installation is available only after publication of the chosen version. No private GitHub access is needed.
+Install the owner-provided tarball with `npm install --global /absolute/path/to/hotzen-0.0.1.tgz`, then run these commands in your project. Registry installation is available only after publication of the chosen version. No private GitHub access is needed.
 
 #### 🍏 On macOS & Linux:
 ```bash
@@ -396,12 +398,12 @@ git checkout unity          # Switches to Unity 6
 #### 2. In Existing Projects via CLI / One-Liners:
 Re-run the command with the new stack flag. Only `.agents/` and bridge files will be updated without modifying your source code:
 ```bash
-npx hotzen@2.5.0-rc.1 --stack=rust
+npx hotzen@0.0.1 --stack=rust
 ```
 
 #### 3. In Fullstack / Monorepo Projects:
-* In root directory: `npx hotzen@2.5.0-rc.1 --stack=react-nextjs`
-* In `backend/` directory: `npx hotzen@2.5.0-rc.1 --stack=laravel`
+* In root directory: `npx hotzen@0.0.1 --stack=react-nextjs`
+* In `backend/` directory: `npx hotzen@0.0.1 --stack=laravel`
 
 ---
 
@@ -415,16 +417,16 @@ Whenever new core rules, AI bridges (such as Cursor, DeepSeek, Qwen), or special
 After publication, select a specific npm release to deploy its bundled resources. Before publication, install the owner-provided tarball and use `hotzen` with the same arguments:
 ```bash
 # Interactive menu update:
-npx hotzen@2.5.0-rc.1
+npx hotzen@0.0.1
 
 # Update with a specific stack flag:
-npx hotzen@2.5.0-rc.1 --stack=flutter
+npx hotzen@0.0.1 --stack=flutter
 
 # Multi-stack update:
-npx hotzen@2.5.0-rc.1 --stack=react-nextjs,laravel
+npx hotzen@0.0.1 --stack=react-nextjs,laravel
 
 # Safely preview update changes first (no deployment changes to the target project):
-npx hotzen@2.5.0-rc.1 --stack=flutter --dry-run
+npx hotzen@0.0.1 --stack=flutter --dry-run
 ```
 
 ---
@@ -917,11 +919,11 @@ Mandatory Stop & Manual Approval Request"}
    * **How to Add Bridges to your Project**:
      ```bash
      # Add during installation:
-     npx hotzen@2.5.0-rc.1 --stack=flutter --bridges=cursor,copilot
+     npx hotzen@0.0.1 --stack=flutter --bridges=cursor,copilot
 
      # Or add anytime to an existing project:
-     npx hotzen@2.5.0-rc.1 bridge cursor
-     npx hotzen@2.5.0-rc.1 bridge copilot
+     npx hotzen@0.0.1 bridge cursor
+     npx hotzen@0.0.1 bridge copilot
      ```
 
 6. **⚖️ Adaptive Model Allocator & Non-Negotiable Safety Floor (`core/allocation/`)**:
@@ -1044,7 +1046,7 @@ Use `core lang add <language>` (e.g., `core lang add python`) to add secondary r
 **No. Absolutely not.** Under the ironclad **Strict Git Human Guardian Law**, no agent is permitted to execute `git commit`, `git push`, `git merge`, or `git rebase` autonomously. All modifications must be presented via `git status` for your explicit manual confirmation.
 
 ### Q5: How can I preview file modifications before running an installer or update?
-Pass the `--dry-run` flag to any deployment or update command (e.g., `npx hotzen@2.5.0-rc.1 --dry-run` or `hotzen --dry-run`). Preview deployment without applying changes to the target project. Temporary staging files or directories may be created.
+Pass the `--dry-run` flag to any deployment or update command (e.g., `npx hotzen@0.0.1 --dry-run` or `hotzen --dry-run`). Preview deployment without applying changes to the target project. Temporary staging files or directories may be created.
 
 ---
 

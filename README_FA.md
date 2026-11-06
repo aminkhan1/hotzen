@@ -1,6 +1,6 @@
 # HOTZEN — Governed AI Engineering Framework
 
-**نسخهٔ ۲٫۵٫۰-rc.1، نامزد انتشار (Release Candidate) است و نسخهٔ پایدار نیست.**
+**نسخهٔ ۰٫۰٫۱، نامزد انتشار (initial experimental release) است و نسخهٔ پایدار نیست.**
 این نسخه هنگام آماده‌سازی بسته هنوز منتشر نشده بود. آزمون‌های اجرایی در محیط
 ایزولهٔ لینوکس با موفقیت انجام شدند. اجرای بومی روی ویندوز **تأیید نشده است
 (NOT VERIFIED)**.
@@ -16,14 +16,14 @@ HOTZEN مهارت‌های ویژهٔ هر پشته، قواعد حاکمیتی 
 مستقیماً اجرا کنید:
 
 ```sh
-npm install --global hotzen@2.5.0-rc.1
-npx hotzen@2.5.0-rc.1 --help
+npm install --global hotzen@0.0.1
+npx hotzen@0.0.1 --help
 ```
 
 **نصب از آرشیو محلی انتشار**، پیش یا پس از انتشار در رجیستری:
 
 ```sh
-npm install --global /absolute/path/to/hotzen-2.5.0-rc.1.tgz
+npm install --global /absolute/path/to/hotzen-0.0.1.tgz
 ```
 
 پس از نصب، نام‌های فرمان را بررسی کنید و پیش‌نمایش استقرار را در پروژه ببینید:
@@ -46,7 +46,7 @@ hotzen --stack=flutter --dry-run
 
 <div align="center">
 
-[![Package Version](https://img.shields.io/badge/package-v2.5.0--rc.1-blue.svg)](INSTALL.md)
+[![Package Version](https://img.shields.io/badge/package-v0.0.1-blue.svg)](INSTALL.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Stacks](https://img.shields.io/badge/Tech_Stacks-28_Active-success.svg)](INSTALL.md)
 [![Core Rules](https://img.shields.io/badge/Core_Rules-27_Universal-blueviolet.svg)](INSTALL.md)
@@ -114,7 +114,7 @@ agent-core-hub/
 
 ## 🌿 ماتریس ۲۸ پشته فناوری تخصصی و ۲۹ شاخه گیت (Modular Branching Strategy)
 
-این ریپازیتوری از معماری **Branch-Per-Stack** بر روی **۲۹ شاخه گیت** (۱ شاخه اصلی `main` + ۲۸ شاخه اختصاصی پشته‌های فناوری) استفاده می‌کند. برنچ‌های `main` و `core` فقط شامل هسته خالص هستند و با جابجایی بین برنچ‌ها، اسکیل‌ها و قوانین همان پشته در جای درست خود فعال می‌شوند:
+ابزار خط فرمان HOTZEN شناسهٔ ۲۸ پشته را می‌پذیرد. قواعد و مهارت‌های تخصصی هر پشته در `stacks/<identifier>/` همراه بسته قرار دارند و استقرار پیش‌فرض از همین منابع محلی استفاده می‌کند. شاخه‌های اختصاصی مخزن خصوصی توسعه برای نصب عمومی لازم نیستند. روش‌های قدیمی دریافت راه دور فقط با درخواست صریح اجرا می‌شوند و ممکن است به دسترسی مجاز به مخزن خصوصی نیاز داشته باشند. نمای شاخه‌ها و دستورهای همگام‌سازی زیر فقط به مخزن کامل و خصوصی توسعه مربوط‌اند:
 
 ```text
 ==================================================================================================
@@ -194,7 +194,7 @@ agent-core-hub/
 کافیست در ترمینال وارد پوشه پروژه خود (مثلاً یک پروژه فلاتر، لاراول، ری‌اکت، نکست، پایتون و...) شوید و دستور زیر را اجرا کنید:
 
 ```bash
-npx hotzen@2.5.0-rc.1
+npx hotzen@0.0.1
 ```
 
 ابزار بلافاصله فایل‌های ساختاری پروژه شما را بررسی می‌کند (`composer.json` برای لاراول، `pubspec.yaml` برای فلاتر، `package.json` برای نکست و ری‌اکت، `Cargo.toml` برای راست و...) و خروجی می‌دهد:
@@ -220,14 +220,14 @@ Or type a stack name / number [1-28] below:
 
 ```bash
 # استقرار یک استک خاص:
-npx hotzen@2.5.0-rc.1 --stack=flutter
-npx hotzen@2.5.0-rc.1 --stack=laravel
+npx hotzen@0.0.1 --stack=flutter
+npx hotzen@0.0.1 --stack=laravel
 
 # استقرار چند استک ترکیبی (مثلاً فرانت‌اند Next.js + معماری Database):
-npx hotzen@2.5.0-rc.1 --stack=react-nextjs,database
+npx hotzen@0.0.1 --stack=react-nextjs,database
 
 # پیش‌نمایش بدون اعمال تغییرات در پروژهٔ هدف:
-npx hotzen@2.5.0-rc.1 --dry-run
+npx hotzen@0.0.1 --dry-run
 ```
 
 ---
@@ -236,18 +236,18 @@ npx hotzen@2.5.0-rc.1 --dry-run
 
 | دستور | کاربرد | مثال |
 | :--- | :--- | :--- |
-| `npx hotzen@2.5.0-rc.1` | تشخیص خودکار استک و استقرار فوری با کلید **Enter** | `npx hotzen@2.5.0-rc.1` |
-| `npx hotzen@2.5.0-rc.1 detect` | اسکن پروژه و نمایش تکنولوژی تشخیص‌داده‌شده با درصد اطمینان | `npx hotzen@2.5.0-rc.1 detect` |
-| `npx hotzen@2.5.0-rc.1 doctor` | بازرسی سلامت گیت، هوک‌های امنیتی، پل‌های فعال و حافظه | `npx hotzen@2.5.0-rc.1 doctor` |
-| `npx hotzen@2.5.0-rc.1 verify` | اجرای تست‌ها، تایپ‌چکر و لینتر متناسب با پشته فناوری پروژه | `npx hotzen@2.5.0-rc.1 verify` |
-| `npx hotzen@2.5.0-rc.1 reset` | پاک‌سازی اسکیل‌های نصب‌شده از `.agents/skills` برای ریست و تصحیح استک اشتباه | `npx hotzen@2.5.0-rc.1 reset` |
-| `npx hotzen@2.5.0-rc.1 bridge <name>` | استقرار انحصاری پل‌های یک هوش مصنوعی خاص (`cursor`، `claude`، `all`) | `npx hotzen@2.5.0-rc.1 bridge cursor` |
+| `npx hotzen@0.0.1` | تشخیص خودکار استک و استقرار فوری با کلید **Enter** | `npx hotzen@0.0.1` |
+| `npx hotzen@0.0.1 detect` | اسکن پروژه و نمایش تکنولوژی تشخیص‌داده‌شده با درصد اطمینان | `npx hotzen@0.0.1 detect` |
+| `npx hotzen@0.0.1 doctor` | بازرسی سلامت گیت، هوک‌های امنیتی، پل‌های فعال و حافظه | `npx hotzen@0.0.1 doctor` |
+| `npx hotzen@0.0.1 verify` | اجرای تست‌ها، تایپ‌چکر و لینتر متناسب با پشته فناوری پروژه | `npx hotzen@0.0.1 verify` |
+| `npx hotzen@0.0.1 reset` | پاک‌سازی اسکیل‌های نصب‌شده از `.agents/skills` برای ریست و تصحیح استک اشتباه | `npx hotzen@0.0.1 reset` |
+| `npx hotzen@0.0.1 bridge <name>` | استقرار انحصاری پل‌های یک هوش مصنوعی خاص (`cursor`، `claude`، `all`) | `npx hotzen@0.0.1 bridge cursor` |
 
 ---
 
 ### 📦 روش ۱: نصب npm یا محلی پشتیبانی‌شده
 
-ابتدا آرشیو تاییدشده مالک را با `npm install --global /absolute/path/to/hotzen-2.5.0-rc.1.tgz` نصب کنید، سپس دستورهای زیر را در پوشه پروژه اجرا کنید. نصب از رجیستری فقط پس از انتشار نسخه انتخاب‌شده ممکن است. این روش به GitHub خصوصی نیاز ندارد.
+ابتدا آرشیو تاییدشده مالک را با `npm install --global /absolute/path/to/hotzen-0.0.1.tgz` نصب کنید، سپس دستورهای زیر را در پوشه پروژه اجرا کنید. نصب از رجیستری فقط پس از انتشار نسخه انتخاب‌شده ممکن است. این روش به GitHub خصوصی نیاز ندارد.
 
 #### 🍏 در مک و لینوکس (macOS / Linux):
 ```bash
@@ -316,12 +316,12 @@ hotzen bridge cursor --dry-run
 
 | دستور / فلگ | نوع | توضیحات | نمونه استفاده |
 | :--- | :--- | :--- | :--- |
-| `npx hotzen@2.5.0-rc.1` | تعاملی | تشخیص خودکار استک و استقرار با تایید کلید **Enter** | `npx hotzen@2.5.0-rc.1` |
-| `npx hotzen@2.5.0-rc.1 detect` | زیرفرمان | اسکن پروژه و نمایش تکنولوژی شناسایی‌شده و درصد اطمینان | `npx hotzen@2.5.0-rc.1 detect` |
-| `npx hotzen@2.5.0-rc.1 doctor` | زیرفرمان | بازرسی سلامت گیت، هوک‌های امنیتی، پل‌های فعال و قوانین حاکمیتی | `npx hotzen@2.5.0-rc.1 doctor` |
-| `npx hotzen@2.5.0-rc.1 verify` | زیرفرمان | اجرای ماتریس اعتبارسنجی خودکار (تست‌ها و لینتر) متناسب با استک | `npx hotzen@2.5.0-rc.1 verify` |
-| `npx hotzen@2.5.0-rc.1 reset` | زیرفرمان | پاک‌سازی اسکیل‌های نصب‌شده جهت تصحیح انتخاب اشتباه استک | `npx hotzen@2.5.0-rc.1 reset` |
-| `npx hotzen@2.5.0-rc.1 bridge <name>` | زیرفرمان | استقرار انحصاری فایل‌های یک هوش مصنوعی (`cursor`، `claude` و...) | `npx hotzen@2.5.0-rc.1 bridge cursor` |
+| `npx hotzen@0.0.1` | تعاملی | تشخیص خودکار استک و استقرار با تایید کلید **Enter** | `npx hotzen@0.0.1` |
+| `npx hotzen@0.0.1 detect` | زیرفرمان | اسکن پروژه و نمایش تکنولوژی شناسایی‌شده و درصد اطمینان | `npx hotzen@0.0.1 detect` |
+| `npx hotzen@0.0.1 doctor` | زیرفرمان | بازرسی سلامت گیت، هوک‌های امنیتی، پل‌های فعال و قوانین حاکمیتی | `npx hotzen@0.0.1 doctor` |
+| `npx hotzen@0.0.1 verify` | زیرفرمان | اجرای ماتریس اعتبارسنجی خودکار (تست‌ها و لینتر) متناسب با استک | `npx hotzen@0.0.1 verify` |
+| `npx hotzen@0.0.1 reset` | زیرفرمان | پاک‌سازی اسکیل‌های نصب‌شده جهت تصحیح انتخاب اشتباه استک | `npx hotzen@0.0.1 reset` |
+| `npx hotzen@0.0.1 bridge <name>` | زیرفرمان | استقرار انحصاری فایل‌های یک هوش مصنوعی (`cursor`، `claude` و...) | `npx hotzen@0.0.1 bridge cursor` |
 | `core switch` | زیرفرمان CLI | نمایش وضعیت سوییچینگ مدل‌ها، مدل فعال و مسیریابی انطباقی | `core switch` |
 | `core switch on` | زیرفرمان CLI | فعال‌سازی سوییچینگ انطباقی نقش‌ها (مدل سبک در برابر استدلالی قدرتمند) | `core switch on` |
 | `core switch off [model]` | زیرفرمان CLI | قفل کردن تمام نقش‌ها روی مدل مشخص‌شده (یا پیش‌فرض پرووایدر) | `core switch off` یا `core switch off [model]` |
@@ -329,7 +329,7 @@ hotzen bridge cursor --dry-run
 | `core lang add <lang>` | زیرفرمان CLI | افزودن پویا زبان ران‌تایم برای تسک‌های آتی (ذخیره در `.agents/memory/runtime_config.json`) | `core lang add python` |
 | `core lang remove <lang>` | زیرفرمان CLI | حذف ایمن زبان ثانویه ران‌تایم بدون دستکاری فایل‌های سورس | `core lang remove python` |
 | `core run "<task>"` | خط فرمان اجرا | اجرای تسک با دروازه تایید الزامی پلن پیش از اجرا و چرخه شفاف شکست | `core run "Build user cart API"` |
-| `--dry-run` | فلگ | پیش‌نمایش استقرار بدون اعمال تغییرات در پروژهٔ هدف | `npx hotzen@2.5.0-rc.1 --dry-run` |
+| `--dry-run` | فلگ | پیش‌نمایش استقرار بدون اعمال تغییرات در پروژهٔ هدف | `npx hotzen@0.0.1 --dry-run` |
 | `--stack=<name>` | آپشن | نام پشته(ها)ی فناوری مورد نظر جداشده با کاما (۲۸ استک) | `--stack=react,laravel` |
 | `--bridges=<list>` | آپشن | نام پل‌های هوش مصنوعی مورد نظر جهت استقرار (`all`, `cursor`, `copilot`, ...) | `--bridges=cursor,copilot` |
 | `--clean` | فلگ | پاک‌سازی اسکیل‌های قدیمی قبل از استقرار استک جدید | `--clean` |
@@ -408,7 +408,7 @@ git checkout unity
 hotzen --stack=laravel
 
 # یا با NPX:
-npx hotzen@2.5.0-rc.1 --stack=laravel
+npx hotzen@0.0.1 --stack=laravel
 
 # یا با ابزار CLI نصب‌شده:
 hotzen --stack=laravel
@@ -432,16 +432,16 @@ hotzen --stack=laravel
 پس از انتشار، نسخه مشخص npm را انتخاب کنید؛ منابع همراه همان بسته مستقر می‌شوند. پیش از انتشار از آرشیو تاییدشده مالک و دستور `hotzen` استفاده کنید:
 ```bash
 # آپدیت تعاملی با منوی انتخاب استک:
-npx hotzen@2.5.0-rc.1
+npx hotzen@0.0.1
 
 # آپدیت مستقیم یک استک مشخص:
-npx hotzen@2.5.0-rc.1 --stack=flutter
+npx hotzen@0.0.1 --stack=flutter
 
 # آپدیت چند استک همزمان (پروژه‌های ترکیبی):
-npx hotzen@2.5.0-rc.1 --stack=react-nextjs,laravel
+npx hotzen@0.0.1 --stack=react-nextjs,laravel
 
 # پیش‌نمایش امن تغییرات آپدیت بدون ایجاد تغییر فیزیکی:
-npx hotzen@2.5.0-rc.1 --stack=flutter --dry-run
+npx hotzen@0.0.1 --stack=flutter --dry-run
 ```
 
 ---
@@ -925,11 +925,11 @@ flowchart TD
    * **نحوه افزودن پل‌ها به پروژه**:
      ```bash
      # در زمان نصب استک با فلگ --bridges:
-     npx hotzen@2.5.0-rc.1 --stack=flutter --bridges=cursor,copilot
+     npx hotzen@0.0.1 --stack=flutter --bridges=cursor,copilot
 
      # یا در هر زمان در یک پروژه فعال:
-     npx hotzen@2.5.0-rc.1 bridge cursor
-     npx hotzen@2.5.0-rc.1 bridge copilot
+     npx hotzen@0.0.1 bridge cursor
+     npx hotzen@0.0.1 bridge copilot
      ```
 
 6. **⚖️ تخصیص‌دهنده تطبیقی مدل و کف ایمنی بدون مصالحه (`core/allocation/`)**:
@@ -1053,7 +1053,7 @@ flowchart TD
 **خیر. به هیچ وجه.** بر اساس قانون خدشه‌ناپذیر **نگهبان گیت (Strict Git Human Guardian Law)**، هیچ ایجنتی اجازه اجرای خودکار `git commit`، `git push`، `git merge` یا `git rebase` را ندارد. تمامی تغییرات ابتدا از طریق `git status` ارائه شده و نیازمند تایید دستی انسان هستند.
 
 ### س۵: چگونه می‌توانم تغییرات فایل‌ها را قبل از نصب یا بروزرسانی پیش‌نمایش کنم؟
-فلگ `--dry-run` را به دستورات دیپلوی اضافه کنید (مانند `npx hotzen@2.5.0-rc.1 --dry-run`). استقرار را بدون اعمال تغییرات در پروژهٔ هدف پیش‌نمایش می‌کند. ممکن است فایل‌ها یا پوشه‌های موقت برای آماده‌سازی ایجاد شوند.
+فلگ `--dry-run` را به دستورات دیپلوی اضافه کنید (مانند `npx hotzen@0.0.1 --dry-run`). استقرار را بدون اعمال تغییرات در پروژهٔ هدف پیش‌نمایش می‌کند. ممکن است فایل‌ها یا پوشه‌های موقت برای آماده‌سازی ایجاد شوند.
 
 ---
 

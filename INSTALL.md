@@ -1,14 +1,14 @@
 # Installation and first use
 
-This guide covers the V1 runtime in package version **2.5.0-rc.1**. Installing the CLI,
+This guide covers the V1 runtime in package version **0.0.1**. Installing the CLI,
 deploying project instructions, and executing an engineering task are separate actions.
 
-`hotzen@2.5.0-rc.1` is a prerelease (Release Candidate). It was unpublished
+`hotzen@0.0.1` is a initial experimental release. It was unpublished
 when these artifacts were prepared. Isolated Linux runtime verification passed.
 Native Windows runtime is **NOT VERIFIED**.
 
 For an owner-provided tarball,
-install with `npm install --global /absolute/path/to/hotzen-2.5.0-rc.1.tgz`, then
+install with `npm install --global /absolute/path/to/hotzen-0.0.1.tgz`, then
 run `hotzen --version`. This installs the existing CLI entry point and requires
 no access to the private source repository. Registry commands are conditional
 on publication of that exact version; no public bootstrap URL is approved.
@@ -85,7 +85,7 @@ install `core`. Do not assume an unpublished candidate is available as `@latest`
 
 First check the chosen executable with `core --help`, or the direct Node command
 above. These instructions are usage guidance, not evidence that installation or a
-release candidate has been tested on your system.
+initial experimental release has been tested on your system.
 
 ## 2. Deploy instructions into the intended project
 

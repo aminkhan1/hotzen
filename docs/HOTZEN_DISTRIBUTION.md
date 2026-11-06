@@ -1,7 +1,7 @@
 # HOTZEN distribution and public export
 
 HOTZEN — Governed AI Engineering Framework uses package identity
-`hotzen@2.5.0-rc.1`. This version is a release candidate. This document is a
+`hotzen@0.0.1`. This version is a initial experimental release. This document is a
 release procedure, not publication, sanitation, test or Core governance evidence.
 
 ## Compatibility boundary
@@ -26,13 +26,13 @@ release procedure, not publication, sanitation, test or Core governance evidence
 An owner-provided package can be installed with:
 
 ```sh
-npm install --global /absolute/path/to/hotzen-2.5.0-rc.1.tgz
+npm install --global /absolute/path/to/hotzen-0.0.1.tgz
 hotzen --version
 hotzen --help
 ```
 
 After publication of this exact version, registry alternatives are
-`npm install --global hotzen@2.5.0-rc.1` and `npx hotzen@2.5.0-rc.1 --help`.
+`npm install --global hotzen@0.0.1` and `npx hotzen@0.0.1 --help`.
 No publication has been performed or claimed here. Review npm prefix collisions
 before installation; local wrapper preflight does not govern npm's own installer.
 
