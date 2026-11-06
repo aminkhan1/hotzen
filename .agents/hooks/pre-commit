@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# 🔒 Agent Core Hub - Git Pre-Commit Security Guardian Hook
+# ==============================================================================
+
+set -e
+
+# Documented Opt-Out for unverified commits
+if [ "$AGENT_HUB_ALLOW_UNSCANNED" = "1" ]; then
+    echo "⚠️ [Security Notice]: Pre-commit secret scanning bypassed via AGENT_HUB_ALLOW_UNSCANNED=1."
+    exit 0
+fi
+
+# Detect Python interpreter
+PYTHON_CMD=""
+if command -v python3 >/dev/null 2>&1; then
+    PYTHON_CMD="python3"
+elif command -v python >/dev/null 2>&1; then
+    PYTHON_CMD="python"
+fi
+
+SCANNED=false
+
+# 1. Optional Industry-Standard Gitleaks integration (if installed)
+if command -v gitleaks >/dev/null 2>&1; then
+    if ! gitleaks protect --staged --verbose; then
+        echo "❌ [Gitleaks] Hardcoded secret detected in staged changes! Commit blocked."
+        exit 1
+    fi
+    SCANNED=true
+fi
+
+# 2. Python Security Scanner
+if [ -n "$PYTHON_CMD" ]; then
+    if [ -f ".agents/security/security_scanner.py" ]; then
+        "$PYTHON_CMD" .agents/security/security_scanner.py
+        SCANNED=true
+    else
+        echo "❌ [Security Failure]: Security scanner script (.agents/security/security_scanner.py) is missing."
+        echo "   Commit blocked to prevent unverified code submission."
+        echo "   To bypass for an emergency commit: AGENT_HUB_ALLOW_UNSCANNED=1 git commit"
+        exit 1
+    fi
+fi
+
+# 3. Fail loudly if no scanner could execute
+if [ "$SCANNED" = false ]; then
+    echo "❌ [Security Failure]: Neither Python nor Gitleaks is available to perform secret scanning."
+    echo "   Commit blocked. Please install python3/gitleaks or bypass via:"
+    echo "   AGENT_HUB_ALLOW_UNSCANNED=1 git commit"
+    exit 1
+fi
+
+exit 0

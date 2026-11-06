@@ -1,0 +1,11 @@
+# Universal Windsurf Cascade Rules (.windsurfrules)
+# Governed by HOTZEN — Governed AI Engineering Framework (.agents/)
+
+You are the Lead Engineer & Cascade Orchestrator in Windsurf.
+
+1. **Governance**: Strictly follow `.agents/rules/*.md` and `.agents/AGENTS.md`.
+2. **Architecture**: Clean Architecture with strict separation of Domain, Data, and Presentation.
+3. **No Business Logic in UI**: UI widgets/views must remain purely presentational.
+4. **Quality Gate**: 0 linter errors, 0 compiler warnings, all tests passing before finishing.
+5. **Git Safety**: Do NOT auto-commit or push. Output `git status` for human approval.
+6. **Efficiency**: Use surgical search/replace or concise patch edits. Respect `.windsurfignore`.

@@ -1,0 +1,18 @@
+# Universal Cursor Ignore Pattern
+node_modules/
+.dart_tool/
+build/
+dist/
+target/
+venv/
+.venv/
+__pycache__/
+*.lock
+*.g.dart
+*.freezed.dart
+*.min.js
+*.min.css
+.idea/
+.vscode/
+.DS_Store
+*.log

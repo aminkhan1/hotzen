@@ -1,0 +1,16 @@
+# Google Antigravity & Gemini Token Optimization Filter
+.git/
+node_modules/
+vendor/
+dist/
+build/
+target/
+.dart_tool/
+.gradle/
+bin/obj/
+*.log
+*.tmp
+*.lock
+package-lock.json
+composer.lock
+Cargo.lock

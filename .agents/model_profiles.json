@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.1.0",
+  "description": "Universal Agent Core Hub - Model Capability Profiles. Owned by allocation policy, decoupled from provider discovery. Distinguishes policy facts from assumptions using explicit provenance.",
+  "capabilityTiers": [
+    "lightweight",
+    "balanced",
+    "strong"
+  ],
+  "provenanceSources": [
+    "benchmark",
+    "provider_metadata",
+    "manual_override",
+    "unknown"
+  ],
+  "profiles": {
+    "haiku": {
+      "capabilityTier": "lightweight",
+      "source": "provider_metadata",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": null,
+      "notes": "Anthropic provider metadata: published lightweight, low-latency model tier in Claude family."
+    },
+    "fable": {
+      "capabilityTier": "balanced",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": false,
+      "notes": "Hypothesized balanced model. Requires empirical benchmark or manual override before automated allocation."
+    },
+    "sonnet": {
+      "capabilityTier": "strong",
+      "source": "provider_metadata",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": null,
+      "notes": "Anthropic provider metadata: flagship high-capability coding and reasoning workhorse (active Claude Code default)."
+    },
+    "sonnet[1m]": {
+      "capabilityTier": "strong",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": false,
+      "notes": "Extended context strong model hypothesis."
+    },
+    "opus": {
+      "capabilityTier": "strong",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": false,
+      "notes": "Hypothesized strong model."
+    },
+    "best": {
+      "capabilityTier": "strong",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": false,
+      "notes": "Provider alias."
+    },
+    "default": {
+      "capabilityTier": "strong",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": false,
+      "notes": "Provider default alias."
+    },
+    "gpt-5.5": {
+      "capabilityTier": "lightweight",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Hypothesized lightweight model."
+    },
+    "gpt-5.6-luna": {
+      "capabilityTier": "lightweight",
+      "source": "benchmark",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Empirical Codex Calibration V1: reliably passed CAL-LOW (2/2 trials, 10/10 tests) with low latency. Minimal sufficient lightweight profile."
+    },
+    "gpt-5.6-terra": {
+      "capabilityTier": "balanced",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Hypothesized balanced model."
+    },
+    "gpt-5.6-sol": {
+      "capabilityTier": "strong",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Hypothesized strong model."
+    },
+    "gpt-6-luna": {
+      "capabilityTier": "balanced",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Hypothesized balanced model."
+    },
+    "gpt-6-sol": {
+      "capabilityTier": "strong",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Hypothesized strong model."
+    },
+    "gpt-6.1-sol": {
+      "capabilityTier": "strong",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Hypothesized strong model."
+    },
+    "gpt-6-astra": {
+      "capabilityTier": "strong",
+      "source": "benchmark",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Empirical Codex Calibration V1: passed CAL-HIGH-2 with 10/10 tests, zero security violations, and verified exit code 0. Trusted Codex strong profile."
+    },
+    "gpt-reserve": {
+      "capabilityTier": "strong",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Reserve capacity model."
+    },
+    "codex-auto-review": {
+      "capabilityTier": "balanced",
+      "source": "unknown",
+      "confidence": null,
+      "relativeCost": null,
+      "costSource": "unknown",
+      "supportsReasoning": true,
+      "notes": "Code review model."
+    }
+  }
+}

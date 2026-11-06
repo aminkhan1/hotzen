@@ -1,0 +1,87 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env*)",
+      "Edit(**/.env*)",
+      "Write(**/.env*)",
+      "Read(**/*.pem)",
+      "Edit(**/*.pem)",
+      "Write(**/*.pem)",
+      "Read(**/*.key)",
+      "Edit(**/*.key)",
+      "Write(**/*.key)",
+      "Read(**/*.p12)",
+      "Edit(**/*.p12)",
+      "Write(**/*.p12)",
+      "Read(**/*.pfx)",
+      "Edit(**/*.pfx)",
+      "Write(**/*.pfx)",
+      "Read(**/id_rsa*)",
+      "Edit(**/id_rsa*)",
+      "Write(**/id_rsa*)",
+      "Read(**/id_ed25519*)",
+      "Edit(**/id_ed25519*)",
+      "Write(**/id_ed25519*)",
+      "Read(**/id_ecdsa*)",
+      "Edit(**/id_ecdsa*)",
+      "Write(**/id_ecdsa*)",
+      "Read(**/*.keystore)",
+      "Edit(**/*.keystore)",
+      "Write(**/*.keystore)",
+      "Read(**/*.jks)",
+      "Edit(**/*.jks)",
+      "Write(**/*.jks)",
+      "Read(**/*credentials*.json)",
+      "Edit(**/*credentials*.json)",
+      "Write(**/*credentials*.json)",
+      "Read(**/*service_account*.json)",
+      "Edit(**/*service_account*.json)",
+      "Write(**/*service_account*.json)",
+      "Read(**/*service-account*.json)",
+      "Edit(**/*service-account*.json)",
+      "Write(**/*service-account*.json)",
+      "Read(**/secrets.yaml)",
+      "Edit(**/secrets.yaml)",
+      "Write(**/secrets.yaml)",
+      "Read(**/secrets.yml)",
+      "Edit(**/secrets.yml)",
+      "Write(**/secrets.yml)",
+      "Read(**/secrets.json)",
+      "Edit(**/secrets.json)",
+      "Write(**/secrets.json)",
+      "Read(**/.npmrc)",
+      "Edit(**/.npmrc)",
+      "Write(**/.npmrc)",
+      "Read(**/.pgpass)",
+      "Edit(**/.pgpass)",
+      "Write(**/.pgpass)",
+      "Read(**/*.p8)",
+      "Edit(**/*.p8)",
+      "Write(**/*.p8)",
+      "Bash(cat:*.env*)",
+      "Bash(cat:*id_rsa*)",
+      "Bash(cat:*id_ed25519*)",
+      "Bash(cat:*id_ecdsa*)",
+      "Bash(cat:*.pem)",
+      "Bash(cat:*.key)",
+      "Bash(cat:*.keystore)",
+      "Bash(head:*.env*)",
+      "Bash(tail:*.env*)",
+      "Bash(cat:.npmrc)",
+      "Bash(cat:.pgpass)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const fs=require('fs'); ['.agents/memory/project_memory.md','.agents/memory/working_memory.md'].forEach(f=>{if(fs.existsSync(f)) console.log(fs.readFileSync(f,'utf8'));});\""
+          }
+        ]
+      }
+    ]
+  }
+}

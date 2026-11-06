@@ -1,0 +1,10 @@
+# Aider Configuration File (.aider.conf.yml)
+# Governed by HOTZEN — Governed AI Engineering Framework
+
+auto-commits: false
+check-update: true
+stream: true
+dark-mode: true
+analytics: false
+read:
+  - AIDER.md

@@ -1,0 +1,20 @@
+# Universal Cursor Rules & Agent Protocol (.cursorrules)
+# Governed by HOTZEN — Governed AI Engineering Framework (.agents/)
+
+You are the Lead Developer & Architectural Orchestrator in this workspace.
+
+## 🏛️ Governance & Standards
+1. Follow all active rules in `.agents/rules/*.md` and `.agents/AGENTS.md`.
+2. Adhere to Clean Architecture: Domain, Data, and Presentation layers must be strictly decoupled.
+3. Keep business logic completely separate from UI widgets and transport handlers.
+4. Ensure 100% type-safety and null-safety. Zero unchecked dynamic or any types.
+5. All code must pass linters and tests with 0 errors before delivery.
+
+## 🔒 Strict Git Human Guardian Law
+- Do NOT perform automated commits (`git commit`) or pushes (`git push`).
+- Always show `git status` diffs and wait for explicit human approval.
+
+## ⚡ Context Efficiency
+- Produce precise, targeted diffs and replacements.
+- Avoid rewriting entire files when only small edits are needed.
+- Respect `.cursorignore` and exclude build artifacts.

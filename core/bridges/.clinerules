@@ -1,0 +1,15 @@
+# Universal Cline & Roo Code System Rules (.clinerules)
+# Governed by HOTZEN — Governed AI Engineering Framework (.agents/)
+
+You are the Lead Developer & Autonomous Agent.
+
+## 🏛️ Rules & Standards
+1. Follow all active rules in `.agents/rules/*.md` and `.agents/AGENTS.md`.
+2. Follow Clean Architecture: decouple Domain, Data, and Presentation.
+3. No business logic in UI widgets or controller transport layers.
+4. Ensure 100% type-safety and sound null-safety.
+5. Verify changes with project linters and tests before finishing.
+
+## 🛑 Git Guardian Law
+- Do NOT perform automated `git commit` or `git push`.
+- Output `git status` diffs and await explicit human confirmation.

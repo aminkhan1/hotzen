@@ -1,0 +1,15 @@
+---
+description: Clean Architecture, Layer Decoupling, and Sound Type Safety
+globs: **/*.{ts,tsx,js,jsx,dart,py,go,rs,php,java,kt,swift,cs,cpp,c,rb}
+alwaysApply: false
+---
+
+# Clean Architecture & Engineering Standards
+
+When writing, modifying, or refactoring application code:
+
+## 💎 Architectural Invariants
+1. **Layer Separation**: Strict separation between Domain/Business Logic, Data/Storage, and Presentation/UI handlers.
+2. **State Decoupling**: Business logic must never reside directly inside UI components or presentation widgets.
+3. **Sound Typing**: Enforce explicit types, null-safety, and strict contracts. Avoid untyped dynamic escape hatches.
+4. **Pre-Delivery Verification**: Code must compile cleanly and pass static analysis, linters, and unit test suites with 0 errors.
